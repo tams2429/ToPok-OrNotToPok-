@@ -18,6 +18,6 @@ A fun, full-stack, project to create a Pokemon Search Engine with a Shakespearea
 3. Create API endpoint + BE response:
   * Once API endpoint is called, the BE will call the 2 public APIs (i.e. Pokemon + Shakespear) and I will use their response to create a new response for my API endpoint 
   * Interested Pokemon Endpoints:
-    * Description = 'https://pokeapi.co/api/v2/pokemon-species/{id or name}/' (i.e. https://pokeapi.co/api/v2/pokemon-species/charizard/) => `responseObj.flavor_text_entries[0].flavor_text`
-    * Pokemon Sprite = 'https://pokeapi.co/api/v2/pokemon/{id or name}/' (i.e. https://pokeapi.co/api/v2/pokemon/charizard/) => `responseObj.sprites.front_default`
+    * Description = `https://pokeapi.co/api/v2/pokemon-species/{id or name}/` (i.e. https://pokeapi.co/api/v2/pokemon-species/charizard/) => `responseObj.flavor_text_entries[0].flavor_text`
+    * Pokemon Sprite = `https://pokeapi.co/api/v2/pokemon/{id or name}/` (i.e. https://pokeapi.co/api/v2/pokemon/charizard/) => `responseObj.sprites.front_default`
 4. 

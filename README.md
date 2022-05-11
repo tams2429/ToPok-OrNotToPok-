@@ -24,4 +24,4 @@ A fun, full-stack, project to create a Pokemon Search Engine with a Shakespearea
 
 # Challenges
 1. Playing around with the Shakespeare Endpoint as there was only a limit of 5 requests per hour
-2. Transforming pokemon description to a format that is accepted by the Shakespear Endpoint (i.e. remove any new lines ('/n'), replace spaces with '%20')
+2. Transforming pokemon description to a format that is accepted by the Shakespear Endpoint (i.e. remove any new lines ('\n'), replace spaces with '%20')

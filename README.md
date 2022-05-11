@@ -21,3 +21,6 @@ A fun, full-stack, project to create a Pokemon Search Engine with a Shakespearea
     * Description = `https://pokeapi.co/api/v2/pokemon-species/{id or name}/` (i.e. https://pokeapi.co/api/v2/pokemon-species/charizard/) => `responseObj.flavor_text_entries[0].flavor_text`
     * Pokemon Sprite = `https://pokeapi.co/api/v2/pokemon/{id or name}/` (i.e. https://pokeapi.co/api/v2/pokemon/charizard/) => `responseObj.sprites.front_default`
 4. 
+
+# Challenges
+1. Playing around with the Shakespeare Endpoint as there was only a limit of 5 requests per hour

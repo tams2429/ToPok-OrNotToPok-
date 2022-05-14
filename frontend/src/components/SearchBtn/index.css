@@ -1,0 +1,10 @@
+.searchBtn {
+  width: 10vw;
+  min-width: 80px;
+  height: 5vh;
+  margin: 0 2vw;
+  border-radius: 5px;
+  font-size: 2vmin;
+  background: white;
+  border: 3px solid green;
+}

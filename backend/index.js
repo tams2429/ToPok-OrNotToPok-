@@ -21,23 +21,22 @@ app.get('/pokemon/:pokemonName', async (req, res) => {
     //Get the Pokemon Description and Sprite from the 2 Pokemon API endpoints
     const pokeDescriptionEndpointRes = await axios.get(pokeDescriptionEndpoint)
     const pokeSpriteEndpointRes = await axios.get(pokeSpriteEndpoint)
-    const pokeDescription = pokeDescriptionEndpointRes.data.flavor_text_entries[0].flavor_text
+
+    //Add logic to test if the flavor_text is english
+    //TODO: Refactor via extracting logic
+    const pokeDescriptionArr = pokeDescriptionEndpointRes.data.flavor_text_entries
+    const englishPokeDescriptionArr = pokeDescriptionArr.filter((pokeDescription) => pokeDescription.language.name === 'en')
+    const englishPokeDescription = englishPokeDescriptionArr[0].flavor_text
     const pokeSprite = pokeSpriteEndpointRes.data.sprites.front_default
-    // console.log('PokeDescription is:', pokeDescription)
-    // console.log('PokeSprite is:', pokeSprite)
-    // console.log(pokeDescriptionEndpointRes.data)
 
     //Transform the pokeDescription text to the format required by the Shakespear API endpoint
     //i.e. word%20word%20word
-    const pokeDescriptionForShakespearAPI = encodeURI(pokeDescription).replace(/(%0A)/gm, '%20')
-    // console.log({pokeDescriptionForShakespearAPI})
+    const pokeDescriptionForShakespearAPI = encodeURI(englishPokeDescription).replace(/(%0A)/gm, '%20')
     
     //Get the Shakespear Translated pokeDescription
-    // console.log(shakespearEndpointPrefix + pokeDescriptionForShakespearAPI)
     const shakespearEndpointRes = await axios.get(shakespearEndpointPrefix + pokeDescriptionForShakespearAPI)
     const shakespearDescription = shakespearEndpointRes.data.contents.translated
-    // console.log(shakespearEndpointRes)
-    // console.log('Shakespear description is:', shakespearDescription)
+
     res.status(200).json({
       name: requestedPokemon,
       description: shakespearDescription,

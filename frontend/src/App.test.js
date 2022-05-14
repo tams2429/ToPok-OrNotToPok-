@@ -7,6 +7,14 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
+const mockResponse = {
+  "name": "mewtwo",
+  "description": "'t wast did create by a scientist after years of horrific gene splicing and dna engineering experiments.",
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png"
+}
+
+
+
 // Test that the correct components have been rendered against snapshot
 
 // Test that loading state components have been rendered when loading state is true

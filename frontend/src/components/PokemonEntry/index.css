@@ -1,0 +1,27 @@
+.pokemon-entry-container {
+  width: 75vw;
+  max-width: 750px;
+  margin: auto;
+  margin-top: 5vh;
+  background: #F1F2F6;
+  min-height: 40vmin;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+.pokemon-img {
+  width: 20vmin;
+  min-width: 100px;
+}
+
+.pokemon-name {
+  font-size: 36px;
+  margin: 2vmin;
+}
+
+.pokemon-description {
+  text-align: left;
+  font-style: italic;
+  font-size: 2.6vmin;
+}

@@ -34,16 +34,18 @@ export const App = () => {
   //API call/function to extract logic later
   const handleClick = async () => {
     //Logic to convert searchString to lowercase
+    setLoading(true)
     const lowerCaseSearchString = searchString.toLowerCase()
     //TODO: refactor by extracting following logic into a function and invoke
     try {
       
       const response = await axios.get(pokemonSearchEndpointPrefix + lowerCaseSearchString)
-      console.log({response})
       setPokemonInfo(response.data)
+      setLoading(false)
     } 
     catch (err) {
-      console.log(err)
+      setLoading(false)
+      setErrorMessage(err.response.data.errorMessage)
     }
   }
 
@@ -54,6 +56,7 @@ export const App = () => {
   }
 
   console.log('Pokemon info is:', pokemonInfo)
+  console.log('Error message is:', errorMessage)
   return (
     <div className='App'>
       <header className='App-header'>
@@ -70,10 +73,16 @@ export const App = () => {
           <SearchBtn btnText='Poké Search' searchString={searchString} onClick={handleClick}/>
           <SearchBtn btnText='Surprise Me' />
           {/* PokemonEntry card component goes here */}
-          {mockResponse && <PokemonEntry {...mockResponse}/>}
+          {/* {error handling goes here} */}
+          {/* {errorMessage ? 
+          <h2>{errorMessage} Please try again</h2>
+          :
+          pokemonInfo && <PokemonEntry {...pokemonInfo}/>
+          } */}
+          {pokemonInfo && <PokemonEntry {...pokemonInfo}/>}
+          {/* {mockResponse && <PokemonEntry {...mockResponse}/>} */}
         </>
       }
-
     </div>
 
   );

@@ -20,10 +20,6 @@ export const App = () => {
 
   const pokemonSearchEndpointPrefix = '/pokemon/'
 
-  // useEffect(() => {
-  //   setLoading(false)
-  // }, [])
-
   // Upon completing initial render, enforced an initial 2 second delay to reset loading state back to false for aesthetic purposes
   // Can remove to improve perfomance
   useEffect(() => {
@@ -32,7 +28,11 @@ export const App = () => {
   }, []);
 
   //API call/function to extract logic later
-  const handleClick = async () => {
+  const handleSearch = async (e) => {
+    e.preventDefault()
+    //Clear any existing errorMessage
+    setErrorMessage('')
+
     //Logic to convert searchString to lowercase
     setLoading(true)
     const lowerCaseSearchString = searchString.toLowerCase()
@@ -49,6 +49,11 @@ export const App = () => {
     }
   }
 
+  // Random pokemon id upto and including id: 898
+  const handleRandomSearch = () => {
+
+  }
+
   const mockResponse = {
     "name": "mewtwo",
     "description": "'t wast did create by a scientist after years of horrific gene splicing and dna engineering experiments.",
@@ -63,25 +68,28 @@ export const App = () => {
         Pokéspear
       </header>
       {loading ?
+      //TODO: refactor by extracting into a loading component
       <div className='loading-wrapper'>
         <p className='classic-1' />
         <div className='pokeball' />
       </div>
        :
-        <>
-          <SearchBar searchString={searchString} setSearchString={setSearchString}/>
-          <SearchBtn btnText='Poké Search' searchString={searchString} onClick={handleClick}/>
-          <SearchBtn btnText='Surprise Me' />
-          {/* PokemonEntry card component goes here */}
-          {/* {error handling goes here} */}
-          {/* {errorMessage ? 
-          <h2>{errorMessage} Please try again</h2>
-          :
-          pokemonInfo && <PokemonEntry {...pokemonInfo}/>
-          } */}
-          {pokemonInfo && <PokemonEntry {...pokemonInfo}/>}
-          {/* {mockResponse && <PokemonEntry {...mockResponse}/>} */}
-        </>
+        //TODO: refactor to using a semantic <form /> element and handleSearch => handleSubmit?
+        //DONE => removed onClick={handleSearch} from <SearchBtn /> props and type=submit => to test if it works?
+      <>
+        <form onSubmit={handleSearch}>
+          <SearchBar searchString={searchString} setSearchString={setSearchString} handleSearch={handleSearch}/>
+          <SearchBtn btnText='Poké Search' searchString={searchString} isDisabled={!searchString}/>
+          <SearchBtn btnText='Surprise Me' isDisabled={false}/>
+        </form>  
+        {errorMessage ? 
+        <h2 className='error-message'>{errorMessage}</h2>
+        :
+        pokemonInfo && <PokemonEntry {...pokemonInfo}/>
+        // mockResponse && <PokemonEntry {...mockResponse}/>
+        }
+        {/* {mockResponse && <PokemonEntry {...mockResponse}/>} */}
+      </>
       }
     </div>
 

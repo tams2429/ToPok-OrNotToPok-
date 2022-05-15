@@ -14,13 +14,19 @@ A fun, full-stack, project to create a Pokemon Search Engine with a Shakespearea
   * Front-End = ReactJS
   * Back-End = Node.js + Express?
   * Testing = Jest + React Testing Library
-2. Setup FE interface + UI
-3. Create API endpoint + BE response:
+2. Create API endpoint + BE response:
   * Once API endpoint is called, the BE will call the 2 public APIs (i.e. Pokemon + Shakespear) and I will use their response to create a new response for my API endpoint 
   * Interested Pokemon Endpoints:
     * Description = `https://pokeapi.co/api/v2/pokemon-species/{id or name}/` (i.e. https://pokeapi.co/api/v2/pokemon-species/charizard/) => `responseObj.flavor_text_entries[0].flavor_text`
     * Pokemon Sprite = `https://pokeapi.co/api/v2/pokemon/{id or name}/` (i.e. https://pokeapi.co/api/v2/pokemon/charizard/) => `responseObj.sprites.front_default`
-4. 
+3. Create FE Components (i.e. search bar, buttons, pokemon entry card etc )
+4. Connect FE to BE via API requests + handle errors
+5. Surprise Me function + Enter to search function + Fancy animation for searchbar
+5. Add FE tests
+6. Accessibility considerations
+7. Refactor FE + BE code
+8. Update + Tidy Readme
+9. Update Dockerfile (if necessary) + Final tidy up
 
 # Challenges
 1. Playing around with the Shakespeare Endpoint as there was only a limit of 5 requests per hour

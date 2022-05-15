@@ -45,7 +45,8 @@ app.get("/pokemon/:pokemonName", async (req, res) => {
       shakespearEndpointRes.data.contents.translated
 
     res.status(200).json({
-      name: requestedPokemon,
+      // Change requestedPokemon to pokeDescriptionEndpointRes.data.name
+      name: pokeDescriptionEndpointRes.data.name,
       description: shakespearDescription,
       sprite: pokeSprite,
     });

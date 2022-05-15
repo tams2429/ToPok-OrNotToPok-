@@ -7,4 +7,13 @@
   font-size: 2vmin;
   background: white;
   border: 3px solid green;
+  cursor: pointer;
+}
+
+.searchBtn.disabled {
+  cursor: not-allowed;
+}
+
+.searchBtn:hover {
+  transform: scale(1.1);
 }

@@ -22,8 +22,8 @@ A fun, full-stack, project to create a Pokemon Search Engine with a Shakespearea
 3. Create FE Components (i.e. search bar, buttons, pokemon entry card etc )
 4. Connect FE to BE via API requests + handle errors
 5. Surprise Me function + Enter to search function + Fancy animation for searchbar
-5. Add FE tests
 6. Accessibility considerations
+5. Add FE tests
 7. Refactor FE + BE code
 8. Update + Tidy Readme
 9. Update Dockerfile (if necessary) + Final tidy up

@@ -18,7 +18,9 @@ export const App = () => {
 
   console.log({searchString})
 
+  //TODO: refactor by extracting constants to a constants file
   const pokemonSearchEndpointPrefix = '/pokemon/'
+  const totalSearchablePokemon = 898
 
   // Upon completing initial render, enforced an initial 2 second delay to reset loading state back to false for aesthetic purposes
   // Can remove to improve perfomance
@@ -29,6 +31,7 @@ export const App = () => {
 
   //API call/function to extract logic later
   const handleSearch = async (e) => {
+    // console.log('form submitted')
     e.preventDefault()
     //Clear any existing errorMessage
     setErrorMessage('')
@@ -50,8 +53,22 @@ export const App = () => {
   }
 
   // Random pokemon id upto and including id: 898
-  const handleRandomSearch = () => {
+  const handleRandomSearch = async() => {
+    const randomId = Math.floor(Math.random() * totalSearchablePokemon) + 1
+    console.log({randomId})
 
+    setErrorMessage('')
+    setLoading(true)
+    //TODO: refactor by extracting following logic into a function and invoke
+    try {
+      const response = await axios.get(pokemonSearchEndpointPrefix + randomId.toString())
+      setPokemonInfo(response.data)
+      setLoading(false)
+    } 
+    catch (err) {
+      setLoading(false)
+      setErrorMessage(err.response.data.errorMessage)
+    }
   }
 
   const mockResponse = {
@@ -74,13 +91,13 @@ export const App = () => {
         <div className='pokeball' />
       </div>
        :
-        //TODO: refactor to using a semantic <form /> element and handleSearch => handleSubmit?
+        //TODO: refactor by extracting to a separate SearchForm component?
         //DONE => removed onClick={handleSearch} from <SearchBtn /> props and type=submit => to test if it works?
       <>
         <form onSubmit={handleSearch}>
           <SearchBar searchString={searchString} setSearchString={setSearchString} handleSearch={handleSearch}/>
-          <SearchBtn btnText='Poké Search' searchString={searchString} isDisabled={!searchString}/>
-          <SearchBtn btnText='Surprise Me' isDisabled={false}/>
+          <SearchBtn btnText='Poké Search' btnType='submit' searchString={searchString} isDisabled={!searchString}/>
+          <SearchBtn btnText='Surprise Me' btnType='button' isDisabled={false} onClick={handleRandomSearch}/>
         </form>  
         {errorMessage ? 
         <h2 className='error-message'>{errorMessage}</h2>

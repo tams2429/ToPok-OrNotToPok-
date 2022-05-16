@@ -5,8 +5,6 @@ import './index.css';
 
 export const SearchBar = ({searchString, setSearchString, handleSearch}) => {
 
-  // const [searchString, setSearchString] = useState('')
-
   const handleChange = e => {
     e.preventDefault()
     setSearchString(e.target.value)

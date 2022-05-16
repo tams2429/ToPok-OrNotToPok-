@@ -1,0 +1,1 @@
+//Test that the component renders properly + matches snapshot

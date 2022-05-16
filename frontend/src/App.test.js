@@ -15,13 +15,12 @@ const mockResponse = {
 
 
 
-// Test that the correct components have been rendered against snapshot
+// Test that the correct components have been initally rendered against snapshot (before API interaction)
 
 // Test that loading state components have been rendered when loading state is true
 
-// Test using mockData that the PokeEntry card component is correctly rendered
+// Test that the MockAPI is called when user interacts with the PokeSearch btn + with the correct parameters (i.e. with the MockPokemonName)
 
-// Test that the SurpriseMe button correctly calls the API with the correct parameters + endpoint
+// Test that the MockAPI is called when the user clicks on the SurpriseMe btn correctly with the correct parameters + endpoint
 
-// Test that the API is being called with the correct parameters with PokeSearch button
-
+// Test that the correct components have been rendered against snapshot after receiving MockPokemonInfo (i.e. response from API)

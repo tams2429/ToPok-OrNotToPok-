@@ -8,13 +8,13 @@ describe('Search Bar component', () => {
   const initialSearchString = ''
   const mockSearchString = 'pikachu'
 
-  //Test that the component renders properly and matches snapshot
+
   it('should render properly and match snapshot', () => {
     const searchBarComponent = render(<SearchBar searchString={initialSearchString} setSearchString={mockSetSearchString} handleSearch={mockHandleSearch}/>)
     expect(searchBarComponent.container).toMatchSnapshot()
   })
 
-  //Test to check that mockSetSearchString (i.e. mockFunction) is being invoked with the input value, as user is typing
+  
   it('should call the mockSetSearchString function (i.e. updates the searchString that is used to call the API) with the current value in the input component', () => {
     const {getByLabelText} = render(<SearchBar searchString={initialSearchString} setSearchString={mockSetSearchString} handleSearch={mockHandleSearch}/>)
     const searchBarInputComponent = getByLabelText('Searchbar-for-pokemon')
@@ -24,8 +24,7 @@ describe('Search Bar component', () => {
     expect(mockSetSearchString).toHaveBeenCalledTimes(1)
     expect(mockSetSearchString).toHaveBeenCalledWith(mockSearchString)
   })
-  
-  //Test that pressing the enter key calls the mockHandleSearch (i.e. mockFunction) + with the current searchString (mockSearchString)?
+
   it('should call the mockHandleSearch function (i.e. API fetch) when the user presses the Enter key on the keyboard', () => {
     const {getByLabelText} = render(<SearchBar searchString={initialSearchString} setSearchString={mockSetSearchString} handleSearch={mockHandleSearch}/>)
     const searchBarInputComponent = getByLabelText('Searchbar-for-pokemon')

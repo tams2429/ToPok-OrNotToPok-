@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pokemon Entry Card Component should render properly and match snapshot 1`] = `
+<div>
+  <section
+    class="pokemon-entry-container"
+  >
+    <img
+      alt="Searched pokemon sprite appearance"
+      class="pokemon-img"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png"
+    />
+    <h2
+      class="pokemon-name"
+    >
+      mewtwo
+    </h2>
+    <p
+      class="pokemon-description"
+    >
+      t wast did create by a scientist after years of horrific gene splicing and dna engineering experiments.
+    </p>
+  </section>
+</div>
+`;

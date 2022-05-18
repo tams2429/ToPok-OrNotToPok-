@@ -1,14 +1,42 @@
-//Test for pokeSearch Button (i.e. btnType='submit')
-  //Test that the button renders properly and matches snapshot
+import { render, fireEvent } from '@testing-library/react'
+import { SearchBtn } from './index'
 
-  //Test that the button is disabled when there is an empty searchString
+describe('Search Button when btnType=`submit`(i.e. pokeSearch Button)', () => {
+  const initialSubmitProps = {
+    btnText: 'Poké Search',
+    btnType: 'submit',
+    isDisabled: false,
+  }
 
-  //Test that clicking on the button would submit 
+  it('should render properly and match snapshot when disabled', () => {
+    const pokeSearchBtnComponent = render(<SearchBtn {...initialSubmitProps} isDisabled={true} />)
+    expect(pokeSearchBtnComponent.container).toMatchSnapshot()
+  })
+  it('should render properly and match snapshot when not disabled', () => {
+    const pokeSearchBtnComponent = render(<SearchBtn {...initialSubmitProps} />)
+    expect(pokeSearchBtnComponent.container).toMatchSnapshot()
+  })
+})
 
+describe('Search Button when btnType=`button`(i.e. Surprise Me Button)', () => {
+  const mockHandleRandomSearch = jest.fn()
 
-//Test for SurpriseMe Button (i.e. btnType='button')
-  //Test that the button renders properly and matches snapshot
+  const initialBtnProps = {
+    btnText: 'Surprise Me',
+    btnType: 'button',
+    isDisabled: false,
+    onClick: mockHandleRandomSearch,
+  }
+  it('should render properly and match snapshot', () => {
+    const surpriseMeBtnComponent = render(<SearchBtn {...initialBtnProps} />)
+    expect(surpriseMeBtnComponent.container).toMatchSnapshot()
+  })
 
-  //Test that the mockHandleRandomSearch function is invoked on clicking the button
+  it('should call the mockHandleRandomSearch function when the button is clicked', () => {
+    const {getByText} = render(<SearchBtn {...initialBtnProps} />)
+    fireEvent.click(getByText(initialBtnProps.btnText))
+    expect(mockHandleRandomSearch).toHaveBeenCalledTimes(1)
 
-  
+  })
+})
+

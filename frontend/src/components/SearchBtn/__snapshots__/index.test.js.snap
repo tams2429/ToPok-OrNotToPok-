@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Button when btnType=\`button\`(i.e. Surprise Me Button) should render properly and match snapshot 1`] = `
+<div>
+  <button
+    class="searchBtn "
+    type="button"
+  >
+    Surprise Me
+  </button>
+</div>
+`;
+
+exports[`Search Button when btnType=\`submit\`(i.e. pokeSearch Button) should render properly and match snapshot when disabled 1`] = `
+<div>
+  <button
+    class="searchBtn disabled"
+    disabled=""
+    type="submit"
+  >
+    Poké Search
+  </button>
+</div>
+`;
+
+exports[`Search Button when btnType=\`submit\`(i.e. pokeSearch Button) should render properly and match snapshot when not disabled 1`] = `
+<div>
+  <button
+    class="searchBtn "
+    type="submit"
+  >
+    Poké Search
+  </button>
+</div>
+`;

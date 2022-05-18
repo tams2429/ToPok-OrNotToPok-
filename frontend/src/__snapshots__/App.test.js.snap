@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main application should fetch and display pokemon info when user clicks on the Surprise Me button (i.e. random search) 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <header
+      class="App-header"
+    >
+      Pokéspear
+    </header>
+    <form>
+      <div>
+        <input
+          aria-label="Searchbar-for-pokemon"
+          class="searchBar"
+          data-testid="searchBar"
+          placeholder="Search your Pokémon here..."
+          type="search"
+          value=""
+        />
+      </div>
+      <button
+        class="searchBtn disabled"
+        disabled=""
+        type="submit"
+      >
+        Poké Search
+      </button>
+      <button
+        class="searchBtn "
+        type="button"
+      >
+        Surprise Me
+      </button>
+    </form>
+    <section
+      class="pokemon-entry-container"
+    >
+      <img
+        alt="Searched pokemon sprite appearance"
+        class="pokemon-img"
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png"
+      />
+      <h2
+        class="pokemon-name"
+      >
+        mewtwo
+      </h2>
+      <p
+        class="pokemon-description"
+      >
+        't wast did create by a scientist after years of horrific gene splicing and dna engineering experiments.
+      </p>
+    </section>
+  </div>
+</div>
+`;
+
+exports[`Main application should fetch and display the pokemon info when the user searches for a valid pokemon 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <header
+      class="App-header"
+    >
+      Pokéspear
+    </header>
+    <form>
+      <div>
+        <input
+          aria-label="Searchbar-for-pokemon"
+          class="searchBar"
+          data-testid="searchBar"
+          placeholder="Search your Pokémon here..."
+          type="search"
+          value="mewtwo"
+        />
+      </div>
+      <button
+        class="searchBtn "
+        type="submit"
+      >
+        Poké Search
+      </button>
+      <button
+        class="searchBtn "
+        type="button"
+      >
+        Surprise Me
+      </button>
+    </form>
+    <section
+      class="pokemon-entry-container"
+    >
+      <img
+        alt="Searched pokemon sprite appearance"
+        class="pokemon-img"
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png"
+      />
+      <h2
+        class="pokemon-name"
+      >
+        mewtwo
+      </h2>
+      <p
+        class="pokemon-description"
+      >
+        't wast did create by a scientist after years of horrific gene splicing and dna engineering experiments.
+      </p>
+    </section>
+  </div>
+</div>
+`;
+
+exports[`Main application should render properly before search and match snapshot 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <header
+      class="App-header"
+    >
+      Pokéspear
+    </header>
+    <form>
+      <div>
+        <input
+          aria-label="Searchbar-for-pokemon"
+          class="searchBar"
+          data-testid="searchBar"
+          placeholder="Search your Pokémon here..."
+          type="search"
+          value=""
+        />
+      </div>
+      <button
+        class="searchBtn disabled"
+        disabled=""
+        type="submit"
+      >
+        Poké Search
+      </button>
+      <button
+        class="searchBtn "
+        type="button"
+      >
+        Surprise Me
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Main application should render the loading components when in a loading state 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <header
+      class="App-header"
+    >
+      Pokéspear
+    </header>
+    <div
+      class="loading-wrapper"
+    >
+      <p
+        class="classic-1"
+        data-testid="loading-text"
+      />
+      <div
+        class="pokeball"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Main application should throw an error message when the user searches for an invalid pokemon/error with network 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <header
+      class="App-header"
+    >
+      Pokéspear
+    </header>
+    <form>
+      <div>
+        <input
+          aria-label="Searchbar-for-pokemon"
+          class="searchBar"
+          data-testid="searchBar"
+          placeholder="Search your Pokémon here..."
+          type="search"
+          value="qwerty"
+        />
+      </div>
+      <button
+        class="searchBtn "
+        type="submit"
+      >
+        Poké Search
+      </button>
+      <button
+        class="searchBtn "
+        type="button"
+      >
+        Surprise Me
+      </button>
+    </form>
+    <h2
+      class="error-message"
+    >
+      400: Looks like something went wrong, please try again
+    </h2>
+  </div>
+</div>
+`;

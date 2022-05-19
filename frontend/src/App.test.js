@@ -1,4 +1,4 @@
-import { render, fireEvent, waitFor, screen } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import axios from 'axios';
 import { App } from './App';
 
@@ -48,7 +48,6 @@ describe('Main application', () => {
     })
   })
 
-  //Test = render the app, change the value of the search bar, click on the search button, expect onSubmit mockHandleSearch to be called + with value = SearchBar
   it('should fetch and display the pokemon info when the user searches for a valid pokemon', async () => {
     const { getByLabelText, getByText, container } = render(<App />)
     const searchBarInputComponent = getByLabelText('Searchbar-for-pokemon')
@@ -101,9 +100,3 @@ describe('Main application', () => {
   })
 
 })
-
-
-//MOVE THE BELOW TESTS TO A SEPARATE TEST FILE FOR TESTING API FUNCTIONS AFTER REFACTORING APIs
-// Test that the MockAPI is called when user interacts with the PokeSearch btn + with the correct parameters (i.e. with the MockPokemonName)
-
-// Test that the MockAPI is called when the user clicks on the SurpriseMe btn correctly with the correct parameters + endpoint

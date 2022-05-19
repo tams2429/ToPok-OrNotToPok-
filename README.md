@@ -1,18 +1,48 @@
 # ToPokeOrNotToPoke
 A fun, full-stack, project to create a Pokemon Search Engine with a Shakespearean Twist 
 
-# Requirements
-1. A search bar that allows users to enter text
-2. Text has to be a pokemon name and upon success, returns a Shakespearean Description + Sprite image of the pokemon
-3. Loading spinner + Basic Error handling (i.e. notification popup/basic error message on the page) 
-4. Responsive Styling
-5. Accessibility (i.e. semantic syntax, aria-labels, alt for images)
+## Table of Contents 📖
+
+- [Overview](#overview-)
+- [Technologies](#technologies-)
+- [Process](#process-)
+- [Getting Started](#getting-started-)
+- [Wins](#wins-)
+- [Challenges](#challenges-)
+- [Future Work](#future-work-)
+
+## Overview 👓
+Built a full-stack application that allows users to search for Pokémon and returns them with a Shakespearean Twist. This application has the following requirements:
+
+1. A search bar that allows users to search for a valid Pokémon and upon clicking on a button, it will return that Pokémon's information
+2. Using the [PokéAPI](https://pokeapi.co/) and [the Shakespear Translation API](https://funtranslations.com/api/shakespeare#endpoint) return Pokémon information with a Shakespearean Description + Sprite image of the pokemon
+3. Loading spinner + Basic Error handling (i.e. Basic error message on the page) 
+4. Responsive Styling (design for both desktop and mobile view)
+5. Accessibility (i.e. semantic syntax, aria-labels, alt for images, keyboard usability)
 6. Automated testing (i.e. mock API tests)
 
-# Steps
+## Technologies 💻
+
+- Front-End:
+    - **ReactJS**
+    - **HTML**
+    - **CSS**
+    - **Jest**
+    - **React-Testing-Library**
+    - **axe-core** (for accessibility testing)
+
+- Back-End:
+    - **Node.js**
+    - **Express**
+
+- General:
+    - **Axios**
+
+## Process
+
 1. Setup environment:
   * Front-End = ReactJS
-  * Back-End = Node.js + Express?
+  * Back-End = Node.js + Express
   * Testing = Jest + React Testing Library
 2. Create API endpoint + BE response:
   * Once API endpoint is called, the BE will call the 2 public APIs (i.e. Pokemon + Shakespear) and I will use their response to create a new response for my API endpoint 
@@ -22,19 +52,47 @@ A fun, full-stack, project to create a Pokemon Search Engine with a Shakespearea
 3. Create FE Components (i.e. search bar, buttons, pokemon entry card etc )
 4. Connect FE to BE via API requests + handle errors
 5. Surprise Me function + Enter to search function + Fancy animation for searchbar
-6. Accessibility considerations
+6. Accessibility considerations (WGAC 'A' Checklist [here](https://www.wuhcag.com/wcag-checklist/))
   * Using keyboard to access all functionality of the app
+  * Providing text alternatives to non-text content (i.e. images, input)
   * Aria labels
-  * Semantic elements
+  * Appropriate semantic elements
+  * Functionality of app does not rely on colour
 5. Add FE tests
 7. Refactor FE + BE code
 8. Update + Tidy Readme
 9. Update Dockerfile (if necessary) + Final tidy up
 
-# Challenges
-1. Playing around with the Shakespeare Endpoint as there was only a limit of 5 requests per hour
-2. Transforming pokemon description to a format that is accepted by the Shakespear Endpoint (i.e. remove any new lines ('\n'), replace spaces with '%20')
-3. Figured out that the search pokemon has to be in lower case, so added logic to convert any search string to lower case
+## Getting Started 🏃‍♂️🏃‍♀️
 
-# Future work 
-1. To add more specific Back-End unit tests 
+If you wish to **run it locally**, you can choose the following options:
+
+### Locally
+- **Fork** or **Clone** the **GitHub repository** [here](https://github.com/tams2429/to_poke_or_not_to_poke)
+- In the **frontend** and the **backend**, run `npm install` to **install** all the **dependencies**
+- Run `npm start` for both the **frontend** and the **backend**, to **start** the **development server** for the whole site
+
+### Using Docker
+- 
+- 
+
+## Wins 🏆
+
+- Able to implement the required functionality + handle any errors
+- Added an extra functionality for random search
+- Created a basic responsive design + addressed assessibility
+
+## Challenges 🏋️
+
+- Playing around with the Shakespeare Endpoint as there was only a limit of 5 requests per hour => created a mockAPIResponse to use in the meantime 
+- Transforming Pokémon description to a format that is accepted by the Shakespear Endpoint (i.e. remove any new lines ('\n'), replace spaces with '%20')
+- Found out that the Pokémon description response is not always the English one => applied a filter to make sure the English one is returned
+- Figured out that the search pokemon has to be in lower case, so added logic to convert any search string to lower case
+
+
+## Future Work ☕
+
+- To add more specific Back-End unit tests 
+### Planned features/extensions
+
+- 

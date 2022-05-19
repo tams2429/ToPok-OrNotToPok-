@@ -1,9 +1,7 @@
 import axios from 'axios'
 
 // COMPONENTS
-import { useState, useEffect } from 'react'
-import { SearchBar } from './components/SearchBar'
-import { SearchBtn } from './components/SearchBtn'
+import { useState } from 'react'
 import { PokemonEntry } from './components/PokemonEntry'
 import { Loading } from './components/Loading'
 import { SearchForm } from './components/SearchForm'
@@ -79,21 +77,14 @@ export const App = () => {
         {loading ?
         <Loading />
         :
-          //TODO: refactor by extracting to a separate SearchForm component?
         <section>
           <SearchForm handleSearch={handleSearch} searchString={searchString} setSearchString={setSearchString} handleRandomSearch={handleRandomSearch}/>
-          {/* <form onSubmit={handleSearch}>
-            <SearchBar searchString={searchString} setSearchString={setSearchString} handleSearch={handleSearch}/>
-            <SearchBtn btnText='Poké Search' btnType='submit' searchString={searchString} isDisabled={!searchString}/>
-            <SearchBtn btnText='Surprise Me' btnType='button' isDisabled={false} onClick={handleRandomSearch}/>
-          </form>   */}
           {errorMessage ? 
           <h2 className='error-message'>{errorMessage}</h2>
           :
           pokemonInfo && <PokemonEntry {...pokemonInfo}/>
           // mockResponse && <PokemonEntry {...mockResponse}/>
           }
-          {/* {mockResponse && <PokemonEntry {...mockResponse}/>} */}
         </section>
         }
       </main>

@@ -14,5 +14,5 @@ export const SearchBar = ({searchString, setSearchString, handleSearch}) => {
     }
   }
 
-  return <input className='searchBar' type='search' placeholder='Search your Pokémon here...' aria-label='Searchbar-for-pokemon' data-testid='searchBar' onChange={handleChange} value={searchString} onKeyUp={handleKeyUp}/> 
+  return <input className='searchBar' type='search' placeholder='Search your Pokémon here...' aria-label='Searchbar-for-pokemon' data-testid='searchBar' onChange={handleChange} value={searchString} onKeyUp={handleKeyUp} name='pokemonSearchbar'/> 
 }

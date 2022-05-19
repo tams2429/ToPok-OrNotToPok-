@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading Component should render properly and match snapshot 1`] = `
+<div>
+  <section
+    class="loading-wrapper"
+  >
+    <p
+      class="loading-text"
+      data-testid="loading-text"
+    />
+    <div
+      class="pokeball"
+    />
+  </section>
+</div>
+`;

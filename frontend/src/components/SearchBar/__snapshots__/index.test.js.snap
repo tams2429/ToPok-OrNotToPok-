@@ -2,15 +2,13 @@
 
 exports[`Search Bar component should render properly and match snapshot 1`] = `
 <div>
-  <div>
-    <input
-      aria-label="Searchbar-for-pokemon"
-      class="searchBar"
-      data-testid="searchBar"
-      placeholder="Search your Pokémon here..."
-      type="search"
-      value=""
-    />
-  </div>
+  <input
+    aria-label="Searchbar-for-pokemon"
+    class="searchBar"
+    data-testid="searchBar"
+    placeholder="Search your Pokémon here..."
+    type="search"
+    value=""
+  />
 </div>
 `;

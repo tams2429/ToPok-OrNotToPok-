@@ -1,7 +1,6 @@
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import axios from 'axios';
 import { App } from './App';
-import { fetch } from './api/api';
 
 jest.mock('axios')
 

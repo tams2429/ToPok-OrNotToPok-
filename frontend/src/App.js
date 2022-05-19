@@ -5,9 +5,14 @@ import { useState, useEffect } from 'react'
 import { SearchBar } from './components/SearchBar'
 import { SearchBtn } from './components/SearchBtn'
 import { PokemonEntry } from './components/PokemonEntry'
+import { Loading } from './components/Loading'
+import { SearchForm } from './components/SearchForm'
 
 // STYLESHEETS
-import './App.css';
+import './App.css'
+
+// CONSTANTS
+import { pokemonSearchEndpointPrefix, totalSearchablePokemon } from './constants' 
 
 export const App = () => {
 
@@ -16,52 +21,38 @@ export const App = () => {
   const [errorMessage, setErrorMessage] = useState('')
   const [pokemonInfo, setPokemonInfo] = useState(null)
 
-  console.log({searchString})
-
-  //TODO: refactor by extracting constants to a constants file
-  const pokemonSearchEndpointPrefix = '/pokemon/'
-  const totalSearchablePokemon = 898
-
-  // Upon completing initial render, enforced an initial 2 second delay to reset loading state back to false for aesthetic purposes
-  // Can remove to improve perfomance
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => setLoading(false), 2000);
-  //   return () => clearTimeout(timeout);
-  // }, []);
-
-  //API call/function to extract logic later
+  // Fetches pokemon based on user's search string query
   const handleSearch = async (e) => {
-    // console.log('form submitted')
     e.preventDefault()
-    //Clear any existing errorMessage
-    setErrorMessage('')
 
-    //Logic to convert searchString to lowercase
+    // Clear any existing errorMessage and start loading spinner
+    setErrorMessage('')
     setLoading(true)
+
+    // Logic to convert searchString to lowercase
     const lowerCaseSearchString = searchString.toLowerCase()
-    //TODO: refactor by extracting following logic into a function and invoke
+
     try {
-      
       const response = await axios.get(pokemonSearchEndpointPrefix + lowerCaseSearchString)
-      console.log('response is:', response)
+
+      // Updates state with response from API endpoint and stop loading spinner
       setPokemonInfo(response.data)
       setLoading(false)
     } 
     catch (err) {
-      console.log('error is:', err)
+
+      // Updates state with error response from API endpoint and stop loading spinner
       setLoading(false)
       setErrorMessage(err.response.data.errorMessage)
     }
   }
 
-  // Random pokemon id upto and including id: 898
+  // Generates random pokemon id upto and including id: 898 and fetches pokemon
   const handleRandomSearch = async() => {
     const randomId = Math.floor(Math.random() * totalSearchablePokemon) + 1
-    console.log({randomId})
-
     setErrorMessage('')
     setLoading(true)
-    //TODO: refactor by extracting following logic into a function and invoke
+    
     try {
       const response = await axios.get(pokemonSearchEndpointPrefix + randomId.toString())
       setPokemonInfo(response.data)
@@ -79,38 +70,33 @@ export const App = () => {
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png"
   }
 
-  console.log('Pokemon info is:', pokemonInfo)
-  console.log('Error message is:', errorMessage)
   return (
     <div className='App'>
       <header className='App-header'>
-        Pokéspear
+        <h1>Pokéspear</h1>
       </header>
-      {loading ?
-      //TODO: refactor by extracting into a loading component
-      <div className='loading-wrapper'>
-        <p className='classic-1' data-testid='loading-text'/>
-        <div className='pokeball' />
-      </div>
-       :
-        //TODO: refactor by extracting to a separate SearchForm component?
-        //DONE => removed onClick={handleSearch} from <SearchBtn /> props and type=submit => to test if it works?
-      <>
-        <form onSubmit={handleSearch}>
-          <SearchBar searchString={searchString} setSearchString={setSearchString} handleSearch={handleSearch}/>
-          <SearchBtn btnText='Poké Search' btnType='submit' searchString={searchString} isDisabled={!searchString}/>
-          <SearchBtn btnText='Surprise Me' btnType='button' isDisabled={false} onClick={handleRandomSearch}/>
-        </form>  
-        {errorMessage ? 
-        <h2 className='error-message'>{errorMessage}</h2>
+      <main>
+        {loading ?
+        <Loading />
         :
-        pokemonInfo && <PokemonEntry {...pokemonInfo}/>
-        // mockResponse && <PokemonEntry {...mockResponse}/>
+          //TODO: refactor by extracting to a separate SearchForm component?
+        <section>
+          <SearchForm handleSearch={handleSearch} searchString={searchString} setSearchString={setSearchString} handleRandomSearch={handleRandomSearch}/>
+          {/* <form onSubmit={handleSearch}>
+            <SearchBar searchString={searchString} setSearchString={setSearchString} handleSearch={handleSearch}/>
+            <SearchBtn btnText='Poké Search' btnType='submit' searchString={searchString} isDisabled={!searchString}/>
+            <SearchBtn btnText='Surprise Me' btnType='button' isDisabled={false} onClick={handleRandomSearch}/>
+          </form>   */}
+          {errorMessage ? 
+          <h2 className='error-message'>{errorMessage}</h2>
+          :
+          pokemonInfo && <PokemonEntry {...pokemonInfo}/>
+          // mockResponse && <PokemonEntry {...mockResponse}/>
+          }
+          {/* {mockResponse && <PokemonEntry {...mockResponse}/>} */}
+        </section>
         }
-        {/* {mockResponse && <PokemonEntry {...mockResponse}/>} */}
-      </>
-      }
+      </main>
     </div>
-
-  );
+  )
 }

@@ -1,8 +1,10 @@
 .searchBar {
+  display: block;
   width: 50vw;
   min-height: 5vh;
   border-radius: 10px;
   padding: 0 20px;
   font-size: 3vmin;
+  margin: auto;
   margin-bottom: 2vh;
 }

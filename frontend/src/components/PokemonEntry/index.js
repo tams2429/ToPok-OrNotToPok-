@@ -1,5 +1,5 @@
 // STYLESHEETS
-import './index.css';
+import './index.css'
 
 export const PokemonEntry = ({name, description, sprite}) => {
   return (

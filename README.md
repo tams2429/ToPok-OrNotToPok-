@@ -21,6 +21,14 @@ Built a full-stack application that allows users to search for Pokémon and retu
 5. Accessibility (i.e. semantic syntax, aria-labels, alt for images, keyboard usability)
 6. Automated testing (i.e. mock API tests)
 
+### Desktop view 🖥️
+
+https://user-images.githubusercontent.com/29611844/169422998-9bb7d164-7c35-4200-8dfe-690bcfec72d8.mov
+
+### Mobile view (iPhone 12 Pro) 📱
+
+https://user-images.githubusercontent.com/29611844/169423146-122b44ce-1399-498d-8601-b034bd6d3ac1.mov
+
 ## Technologies 💻
 
 - Front-End:

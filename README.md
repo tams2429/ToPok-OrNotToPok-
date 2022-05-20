@@ -74,16 +74,19 @@ https://user-images.githubusercontent.com/29611844/169423146-122b44ce-1399-498d-
 
 ## Getting Started 🏃‍♂️🏃‍♀️
 
-If you wish to **run it locally**, you can choose the following options:
+If you wish to **run the app**, you can choose the following options:
 
-### Locally
+### Locally (recommended)
 - **Fork** or **Clone** the **GitHub repository** [here](https://github.com/tams2429/to_poke_or_not_to_poke)
 - In the **frontend** and the **backend**, run `npm install` to **install** all the **dependencies**
 - Run `npm start` for both the **frontend** and the **backend**, to **start** the **development server** for the whole site
 
 ### Using Docker
-- 
-- 
+- Download and install the latest Docker Desktop [here](https://docs.docker.com/desktop/mac/install/)
+- In the root folder, run `docker-compose up --build` (when building for the first time, otherwise just run `docker-compose up`) to build the container and run both the Front-End and the Back-End
+- This should start up the app in your browser
+**N/B:** There is a known issue with using docker to run the app when there is a proxy server setup, as is the case for this application. This will mean that any request to the server from the client will have an error. As a result, it is recommended to run the setup locally as described [here](###locally-)
+
 
 ## Wins 🏆
 
@@ -97,6 +100,7 @@ If you wish to **run it locally**, you can choose the following options:
 - Transforming Pokémon description to a format that is accepted by the Shakespear Endpoint (i.e. remove any new lines ('\n'), replace spaces with '%20')
 - Found out that the Pokémon description response is not always the English one => applied a filter to make sure the English one is returned
 - Figured out that the search pokemon has to be in lower case, so added logic to convert any search string to lower case
+- Had to eject React in order to configure Babel for using Jest with latest ES6 syntax
 
 
 ## Future Work ☕

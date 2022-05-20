@@ -1,4 +1,5 @@
-# ToPokeOrNotToPoke
+# ToPokeOrNotToPoke ![jolteon](https://user-images.githubusercontent.com/29611844/169423778-36b21a01-83d7-4056-beea-865223837801.gif)![eevee](https://user-images.githubusercontent.com/29611844/169423831-ffbe8c3d-ec5f-4aa1-b6e7-b65af24fac34.gif)![cyndaquil](https://user-images.githubusercontent.com/29611844/169423858-db7c0fec-22fb-4f9d-bc4c-e6ff19148740.gif)
+
 A fun, full-stack, project to create a Pokemon Search Engine with a Shakespearean Twist 
 
 ## Table of Contents 📖

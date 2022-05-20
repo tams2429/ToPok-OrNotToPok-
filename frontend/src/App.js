@@ -62,12 +62,6 @@ export const App = () => {
     }
   }
 
-  const mockResponse = {
-    "name": "mewtwo",
-    "description": "'t wast did create by a scientist after years of horrific gene splicing and dna engineering experiments.",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png"
-  }
-
   return (
     <div className='App'>
       <header className='App-header'>
@@ -83,7 +77,6 @@ export const App = () => {
           <h2 className='error-message'>{errorMessage}</h2>
           :
           pokemonInfo && <PokemonEntry {...pokemonInfo}/>
-          // mockResponse && <PokemonEntry {...mockResponse}/>
           }
         </section>
         }
